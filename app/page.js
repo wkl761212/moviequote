@@ -10,7 +10,7 @@ const Home = () => {
   async function getQuote() {
     const api_url = "https://zenquotes.io/api/random";
     try {
-      const response = await fetch(api_url);
+      const response = await fetch('/api/quote');
       const data = await response.json();
       if (data.length > 0) {
         // Assuming the first element in the array is the quote we need
