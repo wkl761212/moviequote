@@ -12,12 +12,13 @@ const Home = () => {
     try {
       const response = await fetch('/api/quote');
       const data = await response.json();
-      if (data.length > 0) {
-        // Assuming the first element in the array is the quote we need
-        setQuote({ q: data[0].q, a: data[0].a });
+      if (data.quote && data.randomAuthor1 && data.randomAuthor2) {
+        setQuote({ q: data.quote.q, a: data.quote.a });
+        setAuthor1({ a: data.randomAuthor1 });
+        setAuthor2({ a: data.randomAuthor2 });
       }
     } catch (error) {
-      console.error("Error fetching quote: ", error);
+      console.error("Error fetching data: ", error);
     }
   }
 
