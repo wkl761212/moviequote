@@ -44,24 +44,15 @@ const Home = () => {
 
   const handleNewQuote = () => {
     getQuote();
-    setRandomAuthors(getRandomAuthors());
+    const newRandomAuthors = getRandomAuthors();
+    const options = [quote.a, ...newRandomAuthors].sort(() => Math.random() - 0.5); // 添加 quote.a 並隨機排序
+    setRandomAuthors(options);
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">      
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div>
         <p>{quote.q}</p>
-      </div>
-      <div>
-        <button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">
-          Option 1
-        </button>
-        <button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">
-          {quote.a}
-        </button>
-        <button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">
-          Option 3
-        </button>
       </div>
       <div>
         {randomAuthors.map((author, index) => (
