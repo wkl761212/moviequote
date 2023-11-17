@@ -39,7 +39,6 @@ const Home = () => {
 // Use useEffect to fetch data when the component mounts
   useEffect(() => {
     getQuote();
-    setRandomAuthors(getRandomAuthors());
   }, []);
 
   const handleNewQuote = () => {
