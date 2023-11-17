@@ -8,7 +8,6 @@ const Home = () => {
 
   // Fetch data from the API
   async function getQuote() {
-    const api_url = "https://zenquotes.io/api/random";
     try {
       const response = await fetch('/api/quote');
       const data = await response.json();
@@ -20,20 +19,6 @@ const Home = () => {
       console.error("Error fetching quote: ", error);
     }
   }
-
-async function getQuote() {
-  const api_url = "https://zenquotes.io/api/random";
-  try {
-    const response = await fetch(api_url);
-    const data = await response.json();
-    if (data.length > 0) {
-      // Assuming the first element in the array is the quote we need
-      setQuote({ q: data[0].q, a: data[0].a });
-    }
-  } catch (error) {
-    console.error("Error fetching quote: ", error);
-  }
-}
 
 // Use useEffect to fetch data when the component mounts
 useEffect(() => {
