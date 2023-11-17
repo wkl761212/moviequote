@@ -5,8 +5,8 @@ import React, { useState, useEffect } from 'react';
 const Home = () => {
   // State to store the quote
   const [quote, setQuote] = useState({ q: '', a: '' });
-  const [randomAuthor1, setrandomAuthor1] = useState({ a: '' });
-  const [randomAuthor2, setrandomAuthor2] = useState({ a: '' });
+  const [randomAuthor1, setAuthor1] = useState({ a: '' });
+  const [randomAuthor2, setAuthor2] = useState({ a: '' });
   // Fetch data from the API
   async function getQuote() {
     try {
@@ -27,10 +27,10 @@ const Home = () => {
       const data2 = await response2.json();
       if (data2.length > 0) {
         // Assuming the first element in the array is the quote we need
-        setQuote({ a: data2[0].a });
+        setAuthor1({ a: data2[0].a });
       }
     } catch (error) {
-      console.error("Error fetching quote: ", error);
+      console.error("Error fetching author1: ", error);
     }
   }
 
@@ -40,10 +40,10 @@ const Home = () => {
       const data3 = await response3.json();
       if (data3.length > 0) {
         // Assuming the first element in the array is the quote we need
-        setQuote({ a: data3[0].a });
+        setAuthor2({ a: data3[0].a });
       }
     } catch (error) {
-      console.error("Error fetching quote: ", error);
+      console.error("Error fetching author2: ", error);
     }
   }
     
@@ -52,20 +52,21 @@ const Home = () => {
   useEffect(() => {
     getQuote();
     getAuthor1();
+    getAuthor2();
   }, []);
 
   const handleNewQuote = () => {
     getQuote();
+    getAuthor1();
+    getAuthor2();
   };
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">      
       <div>
-        <p>{quote.q}</p>
-        <p>{quote.a}</p>
-
+        <p>Quote: {quote.q}</p>
+        <p>Author: {quote.a}</p>
         <p>{randomAuthor1.a}</p>
-
         <p>{randomAuthor2.a}</p>
       </div>
       <button onClick={handleNewQuote} className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">Next Quote</button>
