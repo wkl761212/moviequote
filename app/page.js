@@ -10,6 +10,7 @@ const Home = () => {
 
   const getRandomAuthors = () => {
     let randomAuthors = [];
+    
     const allAuthors = authorsData.authors.map(author => author.name);
 
     while (randomAuthors.length < 2) {
