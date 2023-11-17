@@ -8,13 +8,13 @@ const Home = () => {
   const [quote, setQuote] = useState({ q: '', a: '' });
   const [randomAuthors, setRandomAuthors] = useState([]);
 
-  const getRandomAuthors = (actualAuthor) => {
+  const getRandomAuthors = () => {
     let randomAuthors = [];
     const allAuthors = authorsData.authors.map(author => author.name);
 
     while (randomAuthors.length < 2) {
       const randomAuthor = allAuthors[Math.floor(Math.random() * allAuthors.length)];
-      if (randomAuthor !== actualAuthor && !randomAuthors.includes(randomAuthor)) {
+      if (!randomAuthors.includes(randomAuthor)) {
         randomAuthors.push(randomAuthor);
       }
     }
@@ -29,7 +29,7 @@ const Home = () => {
       if (data.length > 0) {
         // Assuming the first element in the array is the quote we need
         setQuote({ q: data[0].q, a: data[0].a });
-        setRandomAuthors(getRandomAuthors(data[0].a));
+        setRandomAuthors(getRandomAuthors());
       }
     } catch (error) {
       console.error("Error fetching quote: ", error);
@@ -43,6 +43,7 @@ const Home = () => {
 
   const handleNewQuote = () => {
     getQuote();
+    setRandomAuthors(getRandomAuthors());
   };
 
   return (
