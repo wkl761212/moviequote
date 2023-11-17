@@ -39,6 +39,7 @@ const Home = () => {
 // Use useEffect to fetch data when the component mounts
   useEffect(() => {
     getQuote();
+    setRandomAuthors(getRandomAuthors());
   }, []);
 
   const handleNewQuote = () => {
@@ -59,7 +60,7 @@ const Home = () => {
       </div>
       <ul>
         {randomAuthors.map((author, index) => (
-          <li key={index}>{author}</li>
+          <li key={index}>{author.name}</li>
         ))}
       </ul>
       <button onClick={handleNewQuote} className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">Next Quote</button>
