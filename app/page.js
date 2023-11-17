@@ -29,7 +29,7 @@ const Home = () => {
       if (data.length > 0) {
         // Assuming the first element in the array is the quote we need
         setQuote({ q: data[0].q, a: data[0].a });
-        setRandomAuthors(getRandomAuthors(data[0].a));
+        setRandomAuthors(getRandomAuthors(randomAuthors));
       }
     } catch (error) {
       console.error("Error fetching quote: ", error);
