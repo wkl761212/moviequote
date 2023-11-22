@@ -1,7 +1,8 @@
 'use client';
-//import authors from authors.json
+
 import authorsData from './authors.json';
 import React, { useState, useEffect } from 'react';
+import fetchQuote from '../api/quote';
 
 const Home = () => {
   // State to store the quote
@@ -22,15 +23,18 @@ const Home = () => {
     return randomAuthors;
   };
 
-  // Fetch data from the API
+  
   async function getQuote() {
     try {
-      const response = await fetch('/api/quote');
-      const data = await response.json();
-      if (data.length > 0) {
-        // Assuming the first element in the array is the quote we need
-        setQuote({ q: data[0].q, a: data[0].a });
-        setRandomAuthors(getRandomAuthors());
+      const data = await fetchQuote();
+      if (data) {
+        
+        setQuote({ q: data.q, a: data.a });
+        const newRandomAuthors = getRandomAuthors();
+        const options = [quote.a, ...newRandomAuthors].sort(() => Math.random() - 0.5); 
+        setRandomAuthors(options);
+      } else {
+        console.log("No data available");
       }
     } catch (error) {
       console.error("Error fetching quote: ", error);
@@ -42,11 +46,9 @@ const Home = () => {
     getQuote();
   }, []);
 
-  const handleNewQuote = () => {
-    getQuote();
-    const newRandomAuthors = getRandomAuthors();
-    const options = [quote.a, ...newRandomAuthors].sort(() => Math.random() - 0.5); // 添加 quote.a 並隨機排序
-    setRandomAuthors(options);
+  const handleNewQuote = async () => {
+    await getQuote();
+    
   };
 
   return (
