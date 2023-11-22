@@ -28,7 +28,7 @@ const Home = () => {
       if (data) {
         
         setQuote({ q: data.q, a: data.a });
-        
+        setRandomAuthors(getRandomAuthors());
       } else {
         console.log("No data available");
       }
