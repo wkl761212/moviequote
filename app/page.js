@@ -1,5 +1,5 @@
 'use client';
-
+//import authors from authors.json
 import authorsData from './authors.json';
 import React, { useState, useEffect } from 'react';
 import fetchQuote from '../api/quote';
@@ -11,7 +11,9 @@ const Home = () => {
 
   const getRandomAuthors = () => {
     let randomAuthors = [];
+    
     const allAuthors = authorsData.authors.map(author => author.name);
+
     while (randomAuthors.length < 2) {
       const randomAuthor = allAuthors[Math.floor(Math.random() * allAuthors.length)];
       if (!randomAuthors.includes(randomAuthor)) {
@@ -21,7 +23,7 @@ const Home = () => {
     return randomAuthors;
   };
 
-  
+  // Fetch data from the 
   async function getQuote() {
     try {
       const data = await fetchQuote();
@@ -42,8 +44,8 @@ const Home = () => {
     getQuote();
   }, []);
 
-  const handleNewQuote = async () => {
-    await getQuote();
+  const handleNewQuote = () => {
+    getQuote();
     const newRandomAuthors = getRandomAuthors();
     const options = [quote.a, ...newRandomAuthors].sort(() => Math.random() - 0.5); 
     setRandomAuthors(options);
