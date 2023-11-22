@@ -11,9 +11,7 @@ const Home = () => {
 
   const getRandomAuthors = () => {
     let randomAuthors = [];
-    
     const allAuthors = authorsData.authors.map(author => author.name);
-
     while (randomAuthors.length < 2) {
       const randomAuthor = allAuthors[Math.floor(Math.random() * allAuthors.length)];
       if (!randomAuthors.includes(randomAuthor)) {
@@ -30,9 +28,7 @@ const Home = () => {
       if (data) {
         
         setQuote({ q: data.q, a: data.a });
-        const newRandomAuthors = getRandomAuthors();
-        const options = [quote.a, ...newRandomAuthors].sort(() => Math.random() - 0.5); 
-        setRandomAuthors(options);
+        
       } else {
         console.log("No data available");
       }
@@ -48,7 +44,9 @@ const Home = () => {
 
   const handleNewQuote = async () => {
     await getQuote();
-    
+    const newRandomAuthors = getRandomAuthors();
+    const options = [quote.a, ...newRandomAuthors].sort(() => Math.random() - 0.5); 
+    setRandomAuthors(options);
   };
 
   return (
