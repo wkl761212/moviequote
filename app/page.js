@@ -27,8 +27,7 @@ const Home = () => {
   async function getQuote() {
     try {
       const data = await fetchQuote();
-      if (data) {
-        
+      if (data) {       
         setQuote({ q: data.q, a: data.a });
         setRandomAuthors(getRandomAuthors());
       } else {
@@ -44,17 +43,18 @@ const Home = () => {
     getQuote();
   }, []);
 
-  const handleNewQuote = () => {
-    getQuote();
-    const newRandomAuthors = getRandomAuthors();
-    const options = [quote.a, ...newRandomAuthors].sort(() => Math.random() - 0.5); 
-    setRandomAuthors(options);
-  };
+//  const handleNewQuote = () => {
+//    getQuote();
+//    const newRandomAuthors = getRandomAuthors();
+//    const options = [quote.a, ...newRandomAuthors].sort(() => Math.random() - 0.5); 
+//    setRandomAuthors(options);
+//  };
 
   return (
   <main className="flex min-h-screen flex-col items-center justify-between p-24">
     <div>
       <p>{quote.q}</p>
+      <p>{quote.a}</p>
     </div>
     <div>
       {randomAuthors.map((author, index) => (
@@ -63,7 +63,7 @@ const Home = () => {
         </button>
       ))}
     </div>
-    <button onClick={handleNewQuote} className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
+    <button  className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
       Next Quote
     </button>
   </main>
