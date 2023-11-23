@@ -29,7 +29,6 @@ const Home = () => {
       const data = await fetchQuote();
       if (data) {       
         setQuote({ q: data.q, a: data.a });
-        setRandomAuthors(getRandomAuthors());
       } else {
         console.log("No data available");
       }
@@ -43,12 +42,7 @@ const Home = () => {
     getQuote();
   }, []);
 
-//  const handleNewQuote = () => {
-//    getQuote();
-//    const newRandomAuthors = getRandomAuthors();
-//    const options = [quote.a, ...newRandomAuthors].sort(() => Math.random() - 0.5); 
-//    setRandomAuthors(options);
-//  };
+  
 
   return (
   <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -57,16 +51,11 @@ const Home = () => {
       <p>{quote.a}</p>
     </div>
     <div>
-      {randomAuthors.map((author, index) => (
-        <button key={index} className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded my-2">
-          {author}
-        </button>
-      ))}
     </div>
     <button  className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
       Next Quote
     </button>
   </main>
-);
+  );
 };
 export default Home;
