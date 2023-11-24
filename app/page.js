@@ -27,11 +27,14 @@ const Home = () => {
   const handleNewQuote = () => {
     getQuote();
   };
-
+  const parisienneStyle = {
+    fontFamily: "'Parisienne', cursive",
+    // You can add more styles here as needed
+  };
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
   <div>
-    <p>{quote.q}</p>
+  <p style={parisienneStyle}>{quote.q}</p> {/* Apply the Parisienne font here */}
     <p>{quote.a}</p>
   </div>
 
