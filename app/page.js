@@ -46,7 +46,7 @@ const Home = () => {
     : "bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded";
 
     const backgroundStyle = {
-      backgroundImage: `url('./pictures/background.jpg')`, // Adjust the path as needed
+      backgroundImage: `url('pictures\background.jpg')`, // Adjust the path as needed
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
@@ -55,7 +55,7 @@ const Home = () => {
       position: 'fixed', // Fixed position to cover the entire page
       top: 0, // Align to the top
       left: 0, // Align to the left
-      zIndex: -1 // Place it behind the content
+      // Place it behind the content
     };
   return (
     <div>
