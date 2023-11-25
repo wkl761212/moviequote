@@ -1,10 +1,11 @@
 'use client';
 import Image from 'next/image'
 import React, { useState, useEffect } from 'react';
-
+import authorsList from './authors.json';
 const Home = () => {
   // State to store the quote
   const [quote, setQuote] = useState({ q: '', a: '' });
+  const [options, setOptions] = useState({ option1: '', option2: '' });
   // Fetch data from the API
   async function getQuote() {
     try {
@@ -18,36 +19,39 @@ const Home = () => {
       console.error("Error fetching quote: ", error);
     }
   }
+  function getRandomAuthors() {
+    const shuffled = authorsList.authors.sort(() => 0.5 - Math.random());
+    return { option1: shuffled[0].name, option2: shuffled[1].name };
+  }
 
 // Use useEffect to fetch data when the component mounts
   useEffect(() => {
     getQuote();
+    setOptions(getRandomAuthors());
   }, []);
 
   const handleNewQuote = () => {
     getQuote();
+    setOptions(getRandomAuthors());
   };
-  const parisienneStyle = {
-    fontFamily: "'Parisienne', cursive",
-    // You can add more styles here as needed
-  };
+  
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
   <div>
-  <p style={parisienneStyle}>{quote.q}</p> {/* Apply the Parisienne font here */}
+    <p>{quote.q}</p>
     <p>{quote.a}</p>
   </div>
 
   {/* Flex container for buttons */}
   <div className="flex justify-center space-x-4">
     <div>
-      <button onClick={handleNewQuote} className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">Option 1</button>
+      <button onClick={handleNewQuote} className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">{options.option1}</button>
     </div>
     <div>
       <button onClick={handleNewQuote} className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">{quote.a}</button>
     </div>
     <div>
-      <button onClick={handleNewQuote} className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">Option 3</button>
+      <button onClick={handleNewQuote} className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">{options.option2}</button>
     </div>
   </div>
   <div>
