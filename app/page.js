@@ -6,6 +6,7 @@ const Home = () => {
   // State to store the quote
   const [quote, setQuote] = useState({ q: '', a: '' });
   const [options, setOptions] = useState({ option1: '', option2: '' });
+  const [isRed, setIsRed] = useState(false);
   // Fetch data from the API
   async function getQuote() {
     try {
@@ -33,7 +34,12 @@ const Home = () => {
   const handleNewQuote = () => {
     getQuote();
     setOptions(getRandomAuthors());
+    setIsRed(true);
   };
+
+  const buttonClass = isRed 
+    ? "bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded" 
+    : "bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded";
   
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -45,13 +51,13 @@ const Home = () => {
   {/* Flex container for buttons */}
   <div className="flex justify-center space-x-4">
     <div>
-      <button onClick={handleNewQuote} className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">{options.option1}</button>
+    <button onClick={handleNewQuote} className={buttonClass}>{options.option1}</button>
     </div>
     <div>
       <button onClick={handleNewQuote} className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">{quote.a}</button>
     </div>
     <div>
-      <button onClick={handleNewQuote} className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">{options.option2}</button>
+    <button onClick={handleNewQuote} className={buttonClass}>{options.option2}</button>
     </div>
   </div>
   <div>
