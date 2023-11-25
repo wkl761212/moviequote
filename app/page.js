@@ -45,31 +45,45 @@ const Home = () => {
     ? "bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded" 
     : "bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded";
 
-  
+    const backgroundStyle = {
+      backgroundImage: `url('./pictures/background.jpg')`, // Adjust the path as needed
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      width: '100vw', // Width 100% of the viewport
+      height: '100vh', // Height 100% of the viewport
+      position: 'fixed', // Fixed position to cover the entire page
+      top: 0, // Align to the top
+      left: 0, // Align to the left
+      zIndex: -1 // Place it behind the content
+    };
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-  <div>
-    <p>{quote.q}</p>
-    <p>{quote.a}</p>
-  </div>
+    <div>
 
-  {/* Flex container for buttons */}
-  <div className="flex justify-center space-x-4">
-    <div>
-      <button onClick={handleOptionClick} className={optionButtonClass}>{options.option1}</button>
-    </div>
-    <div>
-    <button onClick={handleOptionClick} className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">{quote.a}</button>
-    </div>
-    <div>
-      <button onClick={handleOptionClick} className={optionButtonClass}>{options.option2}</button>
-    </div>
-  </div>
-  <div>
-      <button onClick={handleNewQuote} className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">Next Quote</button>
-    </div>
-</main>
+      <div style={backgroundStyle} />
+      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <div>
+          <p>{quote.q}</p>
+          <p>{quote.a}</p>
+        </div>
 
+        {/* Flex container for buttons */}
+        <div className="flex justify-center space-x-4">
+          <div>
+            <button onClick={handleOptionClick} className={optionButtonClass}>{options.option1}</button>
+          </div>
+          <div>
+          <button onClick={handleOptionClick} className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">{quote.a}</button>
+          </div>
+          <div>
+            <button onClick={handleOptionClick} className={optionButtonClass}>{options.option2}</button>
+          </div>
+        </div>
+        <div>
+          <button onClick={handleNewQuote} className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">Next Quote</button>
+        </div>
+      </main>
+    </div>
   );
 };
 
