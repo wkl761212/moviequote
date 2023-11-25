@@ -34,12 +34,17 @@ const Home = () => {
   const handleNewQuote = () => {
     getQuote();
     setOptions(getRandomAuthors());
-    setIsRed(true);
+    setIsRed(false);
   };
 
-  const buttonClass = isRed 
+  const handleOptionClick = () => {
+    setIsRed(true); // Set the isRed state to true when specific buttons are clicked
+  };
+
+  const optionButtonClass = isRed 
     ? "bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded" 
     : "bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded";
+
   
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -51,13 +56,13 @@ const Home = () => {
   {/* Flex container for buttons */}
   <div className="flex justify-center space-x-4">
     <div>
-    <button onClick={handleNewQuote} className={buttonClass}>{options.option1}</button>
+      <button onClick={handleOptionClick} className={optionButtonClass}>{options.option1}</button>
     </div>
     <div>
-      <button onClick={handleNewQuote} className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">{quote.a}</button>
+    <button onClick={handleNewQuote} className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">{quote.a}</button>
     </div>
     <div>
-    <button onClick={handleNewQuote} className={buttonClass}>{options.option2}</button>
+      <button onClick={handleOptionClick} className={optionButtonClass}>{options.option2}</button>
     </div>
   </div>
   <div>
