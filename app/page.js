@@ -45,26 +45,14 @@ const Home = () => {
     ? "bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded" 
     : "bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded";
 
-    const backgroundStyle = {
-      backgroundImage: `url('pictures\background.jpg')`, // Adjust the path as needed
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      width: '100vw', // Width 100% of the viewport
-      height: '100vh', // Height 100% of the viewport
-      position: 'fixed', // Fixed position to cover the entire page
-      top: 0, // Align to the top
-      left: 0, // Align to the left
-      // Place it behind the content
-    };
+  
   return (
     <div>
 
-      <div style={backgroundStyle} />
+      
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
         <div>
-          <p>{quote.q}</p>
-          <p>{quote.a}</p>
+          <p>{quote.q}</p>          
         </div>
 
         {/* Flex container for buttons */}
