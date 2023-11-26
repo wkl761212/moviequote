@@ -51,7 +51,7 @@ const Home = () => {
       <main className="flex min-h-screen flex-col items-center justify-center p-24">
         
         <div>
-          <p className="text-6xl text-black py-2 z-10">Guess this quote is from which author?</p>
+          <p className="text-6xl text-black py-2 z-10">Who said this quote?</p>
         </div>
         <div className="relative w-full h-96 text-center"> {/* Adjust the height as needed */}
           {/* The Image as Background */}
