@@ -57,13 +57,13 @@ const Home = () => {
         <div>
           <p className="text-6xl text-black p-1 m-1 z-10" style={{ fontFamily: "'Parisienne', cursive" }}>Who said this quote?</p>
         </div>
-        <div className="relative w-full max-w-6xl h-96  m-6 text-center" > {/* Adjust the height as needed */}
+        <div className="relative w-full h-96  m-6 text-center" > {/* Adjust the height as needed */}
           {/* The Image as Background */}
           <Image src="/parchment-bg.png" alt="Background" layout="fill" objectFit="contain" priority />
 
           {/* The Quote */}
           <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center">
-            <p className="text-2xl text-black z-10">{quote.q}</p>
+            <p className="text-2xl text-black z-10 max-w-xl mx-auto" style={{ wordWrap: "break-word" }}>{quote.q}</p>
           </div>
         </div>
         <div className="flex justify-center space-x-4">
