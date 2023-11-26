@@ -49,6 +49,10 @@ const Home = () => {
   return (
     <div style={{ backgroundColor: '#bfdbfe', minHeight: '100vh' }}>
       <main className="flex min-h-screen flex-col items-center justify-center p-24">
+        
+        <div>
+          <p className="text-6xl text-black py-2 z-10">Guess this quote is from which author?</p>
+        </div>
         <div className="relative w-full h-96 text-center"> {/* Adjust the height as needed */}
           {/* The Image as Background */}
           <Image src="/parchment-bg.png" alt="Background" layout="fill" objectFit="contain" priority />
