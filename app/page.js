@@ -55,7 +55,7 @@ const Home = () => {
 
           {/* The Quote */}
           <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center">
-            <p className="text-4xl text-black z-10">{quote.q}</p>
+            <p className="text-2xl text-black z-10">{quote.q}</p>
           </div>
         </div>
         <div className="flex justify-center space-x-4">
