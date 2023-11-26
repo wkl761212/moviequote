@@ -74,7 +74,7 @@ const Home = () => {
           </div>
         </div>
         <div>
-          <button onClick={handleNewQuote} className="bg-[#f5cb40] hover:from-blue-600 hover:to-blue-700 text-white font-bold my-8 py-2 px-4 rounded">Next Quote</button>
+          <button onClick={handleNewQuote} className="bg-[#854d0e] hover:from-blue-600 hover:to-blue-700 text-white font-bold my-8 py-2 px-4 rounded">Next Quote</button>
         </div>
       </main>
     </div>
