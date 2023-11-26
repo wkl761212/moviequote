@@ -48,16 +48,22 @@ const Home = () => {
   
   return (
     <div style={{ backgroundColor: '#bfdbfe', minHeight: '100vh' }}>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <div>
-          <p>{quote.q}</p>          
+      <main className="flex min-h-screen flex-col items-center justify-center p-24">
+        <div className="relative w-full h-96 text-center"> {/* Adjust the height as needed */}
+          {/* The Image as Background */}
+          <Image src="/parchment-bg.png" alt="Background" layout="fill" objectFit="contain" priority />
+
+          {/* The Quote */}
+          <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center">
+            <p className="text-xl text-black z-10">{quote.q}</p>
+          </div>
         </div>
         <div className="flex justify-center space-x-4">
           <div>
             <button onClick={handleOptionClick} className={optionButtonClass}>{options.option1}</button>
           </div>
           <div>
-          <button onClick={handleOptionClick} className="bg-[#f5cb40] hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">{quote.a}</button>
+            <button onClick={handleOptionClick} className="bg-[#f5cb40] hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">{quote.a}</button>
           </div>
           <div>
             <button onClick={handleOptionClick} className={optionButtonClass}>{options.option2}</button>
