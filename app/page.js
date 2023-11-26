@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import React, { useState, useEffect } from 'react';
 import authorsList from './authors.json';
+
 const Home = () => {
   // State to store the quote
   const [quote, setQuote] = useState({ q: '', a: '' });
@@ -48,12 +49,15 @@ const Home = () => {
   
   return (
     <div style={{ backgroundColor: '#bfdbfe', minHeight: '100vh' }}>
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+      `}</style>
       <main className="flex min-h-screen flex-col items-center justify-center pt-8">
         
         <div>
-          <p className="text-6xl text-black p-1 m-1 z-10">Who said this quote?</p>
+          <p className="text-6xl text-black p-1 m-1 z-10" style={{ fontFamily: "'Parisienne', cursive" }}>Who said this quote?</p>
         </div>
-        <div className="relative w-full h-96  m-6 text-center"> {/* Adjust the height as needed */}
+        <div className="relative w-full h-96  m-6 text-center" > {/* Adjust the height as needed */}
           {/* The Image as Background */}
           <Image src="/parchment-bg.png" alt="Background" layout="fill" objectFit="contain" priority />
 
