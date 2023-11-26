@@ -43,32 +43,28 @@ const Home = () => {
 
   const optionButtonClass = isRed 
     ? "bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded" 
-    : "bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded";
+    : "bg-[#f5cb40] hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded";
 
   
   return (
-    <div>
-
-      
+    <div style={{ backgroundColor: '#bfdbfe', minHeight: '100vh' }}>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
         <div>
           <p>{quote.q}</p>          
         </div>
-
-        {/* Flex container for buttons */}
         <div className="flex justify-center space-x-4">
           <div>
             <button onClick={handleOptionClick} className={optionButtonClass}>{options.option1}</button>
           </div>
           <div>
-          <button onClick={handleOptionClick} className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">{quote.a}</button>
+          <button onClick={handleOptionClick} className="bg-[#f5cb40] hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">{quote.a}</button>
           </div>
           <div>
             <button onClick={handleOptionClick} className={optionButtonClass}>{options.option2}</button>
           </div>
         </div>
         <div>
-          <button onClick={handleNewQuote} className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">Next Quote</button>
+          <button onClick={handleNewQuote} className="bg-[#f5cb40] hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded">Next Quote</button>
         </div>
       </main>
     </div>
