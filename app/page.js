@@ -48,7 +48,7 @@ const Home = () => {
 
   
   return (
-    <div style={{ backgroundColor: '#bfdbfe', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#7c2d12', minHeight: '100vh' }}>
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
       `}</style>
@@ -78,7 +78,7 @@ const Home = () => {
           </div>
         </div>
         <div>
-          <button onClick={handleNewQuote} className="bg-[#854d0e] hover:from-blue-600 hover:to-blue-700 text-white font-bold my-8 py-2 px-4 rounded">Next Quote</button>
+          <button onClick={handleNewQuote} className="bg-[#ea580c] hover:from-blue-600 hover:to-blue-700 text-white font-bold my-8 py-2 px-4 rounded">Next Quote</button>
         </div>
       </main>
     </div>
