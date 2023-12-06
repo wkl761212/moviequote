@@ -62,7 +62,7 @@ const Home = () => {
       <main className="flex min-h-screen flex-col items-center justify-center pt-8">
         
         <div>
-          <p className="text-6xl text-black p-1 m-1 z-10" style={{ fontFamily: "'Parisienne', cursive" }}>Who said this quote?</p>
+          <p className="text-8xl text-black p-1 m-1 z-10" style={{ fontFamily: "'Parisienne', cursive" }}>Who said this quote?</p>
         </div>
         <div className="relative w-full h-96  m-6 text-center" > {/* Adjust the height as needed */}
           {/* The Image as Background */}
