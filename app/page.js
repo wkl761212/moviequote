@@ -48,7 +48,14 @@ const Home = () => {
 
   
   return (
-    <div style={{ backgroundColor: '#7c2d12', minHeight: '100vh' }}>
+    <div style={{
+      backgroundImage: "url('/pictures/bg.jpg')",
+      minHeight: '100vh',
+      width: '100%',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+      }}>
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
       `}</style>
